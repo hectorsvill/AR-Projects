@@ -12,6 +12,7 @@ import ARKit
 class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
+    private let diceName = "art.scnassets/diceCollada.scn"
     private let moonImageName = "art.scnassets/moon.jpg"
     
     override func viewDidLoad() {
@@ -26,11 +27,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         if ARWorldTrackingConfiguration.isSupported {
             let configuration = ARWorldTrackingConfiguration()
             sceneView.session.run(configuration)
-            
         } else {
             print("ARWorldTrackingConfiguration not supported")
         }
-
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -49,12 +48,21 @@ extension ViewController {
 //        sceneView.scene.rootNode.addChildNode(node)
         
         
-        let sphere = createSphere()
-        let node = createNode(with: sphere)
-        sceneView.scene.rootNode.addChildNode(node)
+//        let sphere = createSphere()
+//        let node = createNode(with: sphere)
+//        sceneView.scene.rootNode.addChildNode(node)
         
+        
+        createDice()
         
         sceneView.autoenablesDefaultLighting = true
+    }
+    
+    private func createNode(with geometry: SCNGeometry) -> SCNNode {
+        let node = SCNNode()
+        node.position = SCNVector3(x: 0, y: 0.1, z: -0.5)
+        node.geometry = geometry
+        return node
     }
     
     private func createCube() -> SCNBox {
@@ -73,10 +81,13 @@ extension ViewController {
         return sphere
     }
     
-    private func createNode(with geometry: SCNGeometry) -> SCNNode {
-        let node = SCNNode()
-        node.position = SCNVector3(x: 0, y: 0.1, z: -0.5)
-        node.geometry = geometry
-        return node
+    private func createDice() {
+        let diceScene = SCNScene(named: diceName)!
+        
+        if let diceNode = diceScene.rootNode.childNode(withName: "Dice", recursively: true) {
+            diceNode.position = SCNVector3(0, 0, -0.1)
+            sceneView.scene.rootNode.addChildNode(diceNode)
+        }
     }
+    
 }
