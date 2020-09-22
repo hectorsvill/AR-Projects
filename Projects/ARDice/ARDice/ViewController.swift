@@ -18,8 +18,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         sceneView.delegate = self
         
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        sceneView.scene = scene
+        let cube = createCube()
+        let node = createNode(with: cube)
+        sceneView.scene.rootNode.addChildNode(node)
+        sceneView.autoenablesDefaultLighting = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,5 +41,22 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         super.viewWillDisappear(animated)
         
         sceneView.session.pause()
+    }
+}
+
+extension ViewController {
+    private func createCube() -> SCNBox {
+        let cube = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.01)
+        let material = SCNMaterial()
+        material.diffuse.contents = UIColor.systemGreen
+        cube.materials = [material]
+        return cube
+    }
+    
+    private func createNode(with geometry: SCNBox) -> SCNNode {
+        let node = SCNNode()
+        node.position = SCNVector3(x: 0, y: 0.1, z: -0.5)
+        node.geometry = geometry
+        return node
     }
 }
