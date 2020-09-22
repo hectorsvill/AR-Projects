@@ -12,16 +12,12 @@ import ARKit
 class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
+    private let moonImageName = "art.scnassets/moon.jpg"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        sceneView.delegate = self
-        
-        let cube = createCube()
-        let node = createNode(with: cube)
-        sceneView.scene.rootNode.addChildNode(node)
-        sceneView.autoenablesDefaultLighting = true
+        configureViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +41,22 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 }
 
 extension ViewController {
+    private func configureViews() {
+        sceneView.delegate = self
+        
+//        let cube = createCube()
+//        let node = createNode(with: cube)
+//        sceneView.scene.rootNode.addChildNode(node)
+        
+        
+        let sphere = createSphere()
+        let node = createNode(with: sphere)
+        sceneView.scene.rootNode.addChildNode(node)
+        
+        
+        sceneView.autoenablesDefaultLighting = true
+    }
+    
     private func createCube() -> SCNBox {
         let cube = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.01)
         let material = SCNMaterial()
@@ -53,7 +65,15 @@ extension ViewController {
         return cube
     }
     
-    private func createNode(with geometry: SCNBox) -> SCNNode {
+    private func createSphere() -> SCNSphere {
+        let sphere = SCNSphere(radius: 0.2)
+        let material = SCNMaterial()
+        material.diffuse.contents = UIImage(named: moonImageName)
+        sphere.materials = [material]
+        return sphere
+    }
+    
+    private func createNode(with geometry: SCNGeometry) -> SCNNode {
         let node = SCNNode()
         node.position = SCNVector3(x: 0, y: 0.1, z: -0.5)
         node.geometry = geometry
