@@ -11,6 +11,7 @@ import ARKit
 
 class ViewController: UIViewController {
     @IBOutlet var sceneView: ARSCNView!
+    
     private let diceName = "art.scnassets/diceCollada.scn"
     private let moonName = "art.scnassets/moon.jpg"
     private let gridName = "art.scnassets/grid.png"
@@ -40,12 +41,17 @@ class ViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let touchLocation = touch.location(in: sceneView)
+            
+            // hitTest is depricated
             let results = sceneView.hitTest(touchLocation, types: .existingPlaneUsingExtent)
             
-            if !results.isEmpty {
-                
-            } else {
-                
+            if let hitResult = results.first {
+                let columns = hitResult.worldTransform.columns
+                let x = Double(columns.3.x)
+                let y = Double(columns.3.y)
+                let z = Double(columns.3.z)
+                let postion = SCNVector3(x, y, z)
+                self.createDice(at: postion)
             }
         }
     }
@@ -119,11 +125,12 @@ extension ViewController {
         return sphere
     }
     
-    private func createDice() {
+    private func createDice(at position: SCNVector3) {
         let diceScene = SCNScene(named: diceName)!
         
         if let diceNode = diceScene.rootNode.childNode(withName: "Dice", recursively: true) {
-            diceNode.position = SCNVector3(0, 0, -0.1)
+            let positionAboveGrid = SCNVector3(position.x, position.y + diceNode.boundingSphere.radius, position.z)
+            diceNode.position = positionAboveGrid
             sceneView.scene.rootNode.addChildNode(diceNode)
         }
     }
