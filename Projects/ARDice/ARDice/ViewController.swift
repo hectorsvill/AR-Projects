@@ -11,14 +11,16 @@ import ARKit
 
 class ViewController: UIViewController {
     @IBOutlet var sceneView: ARSCNView!
-    
+
     private let diceName = "art.scnassets/diceCollada.scn"
     private let moonName = "art.scnassets/moon.jpg"
     private let gridName = "art.scnassets/grid.png"
 
+    var diceArray = [SCNNode]()
+    
     
     var getRandomFloat: Float {
-        Float.random(in: 0..<4) * Float.pi / 2
+        Float.random(in: 1...4) * (Float.pi / 2)
     }
     
     override func viewDidLoad() {
@@ -60,6 +62,10 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        rollAll()
+    }
 }
 
 extension ViewController: ARSCNViewDelegate {
@@ -81,6 +87,9 @@ extension ViewController: ARSCNViewDelegate {
 
 extension ViewController {
     private func configureViews() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Roll Again", style: .done, target: self, action: #selector(rollAll))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Remove All", style: .done, target: self, action: #selector(removeAll))
+        
 //        self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         
         sceneView.delegate = self
@@ -130,35 +139,53 @@ extension ViewController {
         return sphere
     }
     
+    private func createGrid() -> SCNMaterial{
+        let gridMaterial = SCNMaterial()
+        gridMaterial.diffuse.contents = UIImage(named: gridName)
+        return gridMaterial
+    }
+    
     private func createDice(at position: SCNVector3) {
         let diceScene = SCNScene(named: diceName)!
         
         if let diceNode = diceScene.rootNode.childNode(withName: "Dice", recursively: true) {
             let positionAboveGrid = SCNVector3(position.x, position.y + diceNode.boundingSphere.radius, position.z)
             diceNode.position = positionAboveGrid
+            
+            diceArray.append(diceNode)
+            
             sceneView.scene.rootNode.addChildNode(diceNode)
-            createAnimation(with: diceNode)
+            createRoleAnimation(with: diceNode)
             
         }
     }
     
-    private func createAnimation(with diceNode: SCNNode) {
+    private func createRoleAnimation(with diceNode: SCNNode) {
         let radomX = getRandomFloat
         let randomY = getRandomFloat
-        
-        let x = CGFloat(radomX + 5)
-        let z = CGFloat(randomY + 5)
+        let x = CGFloat(radomX * 5)
+        let z = CGFloat(randomY * 5)
         
         let action = SCNAction.rotateBy(x: x, y: 0, z: z, duration: 0.4)
         
         diceNode.runAction(action)
     }
     
+    @objc func rollAll() {
+        if !diceArray.isEmpty {
+            diceArray.forEach {
+                createRoleAnimation(with: $0)
+            }
+        }
+        
+    }
     
-    private func createGrid() -> SCNMaterial{
-        let gridMaterial = SCNMaterial()
-        gridMaterial.diffuse.contents = UIImage(named: gridName)
-        return gridMaterial
+    @objc func removeAll() {
+        if !diceArray.isEmpty {
+            diceArray.forEach{
+                $0.removeFromParentNode()
+            }
+        }
     }
     
 }
