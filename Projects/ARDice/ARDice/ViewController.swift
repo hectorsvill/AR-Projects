@@ -15,6 +15,11 @@ class ViewController: UIViewController {
     private let diceName = "art.scnassets/diceCollada.scn"
     private let moonName = "art.scnassets/moon.jpg"
     private let gridName = "art.scnassets/grid.png"
+
+    
+    var getRandomFloat: Float {
+        Float.random(in: 0..<4) * Float.pi / 2
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +81,7 @@ extension ViewController: ARSCNViewDelegate {
 
 extension ViewController {
     private func configureViews() {
-        self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+//        self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         
         sceneView.delegate = self
         
@@ -132,8 +137,23 @@ extension ViewController {
             let positionAboveGrid = SCNVector3(position.x, position.y + diceNode.boundingSphere.radius, position.z)
             diceNode.position = positionAboveGrid
             sceneView.scene.rootNode.addChildNode(diceNode)
+            createAnimation(with: diceNode)
+            
         }
     }
+    
+    private func createAnimation(with diceNode: SCNNode) {
+        let radomX = getRandomFloat
+        let randomY = getRandomFloat
+        
+        let x = CGFloat(radomX + 5)
+        let z = CGFloat(randomY + 5)
+        
+        let action = SCNAction.rotateBy(x: x, y: 0, z: z, duration: 0.4)
+        
+        diceNode.runAction(action)
+    }
+    
     
     private func createGrid() -> SCNMaterial{
         let gridMaterial = SCNMaterial()
