@@ -18,7 +18,6 @@ class ViewController: UIViewController {
 
     var diceArray = [SCNNode]()
     
-    
     var getRandomFloat: Float {
         Float.random(in: 1...4) * (Float.pi / 2)
     }
@@ -70,18 +69,14 @@ class ViewController: UIViewController {
 
 extension ViewController: ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        if anchor is ARPlaneAnchor {
-            let planeAnchor = anchor as! ARPlaneAnchor
-            let plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
-            let planeNode = SCNNode()
-            planeNode.position = SCNVector3(x: planeAnchor.center.x, y: 0, z: planeAnchor.center.z)
-            planeNode.transform = SCNMatrix4MakeRotation(-Float.pi/2, 1, 0, 0)
-            plane.materials = [createGrid()]
-            planeNode.geometry = plane
-            node.addChildNode(planeNode)
-        } else {
-            return
-        }
+        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+        let plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
+        let planeNode = SCNNode()
+        planeNode.position = SCNVector3(x: planeAnchor.center.x, y: 0, z: planeAnchor.center.z)
+        planeNode.transform = SCNMatrix4MakeRotation(-Float.pi/2, 1, 0, 0)
+        plane.materials = [createGrid()]
+        planeNode.geometry = plane
+        node.addChildNode(planeNode)
     }
 }
 
