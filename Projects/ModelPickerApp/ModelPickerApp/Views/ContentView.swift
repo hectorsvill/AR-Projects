@@ -11,7 +11,21 @@ import RealityKit
 // reality kit uses sdc format.
 
 struct ContentView : View {
-    var models = ["stratocaster", "teapot", "biplane", "vintagerobot2k"]
+    var models: [String] = {
+        let fileManager = FileManager.default
+        guard let path = Bundle.main.resourcePath,
+              let files = try? fileManager.contentsOfDirectory(atPath: path) else {
+            return []
+        }
+        
+        var availableModels = [String]()
+        for filename in files where filename.hasSuffix("usdz") {
+            let modelName = filename.replacingOccurrences(of: ".usdz", with: "")
+            availableModels.append(modelName)
+        }
+        
+        return availableModels
+    }()
     
     var body: some View {
         ZStack(alignment: .bottom){
@@ -23,16 +37,12 @@ struct ContentView : View {
 }
 
 struct ARViewContainer: UIViewRepresentable {
-    
     func makeUIView(context: Context) -> ARView {
-        
         let arView = ARView(frame: .zero)
         return arView
-        
     }
     
     func updateUIView(_ uiView: ARView, context: Context) {}
-    
 }
 
 struct ModelPickerView: View {
@@ -46,7 +56,6 @@ struct ModelPickerView: View {
                     
                     Button(action: {
                         print(model)
-                        
                     }) {
                         if let image = UIImage(named: model) {
                             Image(uiImage: image)
@@ -56,7 +65,6 @@ struct ModelPickerView: View {
                                 .background(Color.white)
                                 .cornerRadius(12)
                         }
-                        
                     }
                     .buttonStyle(PlainButtonStyle())
                 }
@@ -66,8 +74,6 @@ struct ModelPickerView: View {
         .background(Color.black.opacity(0.5))
     }
 }
-
-
 
 #if DEBUG
 struct ContentView_Previews : PreviewProvider {
