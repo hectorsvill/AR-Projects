@@ -62,8 +62,8 @@
 		3BF11560251E961100372E55 /* ModelPickerApp */ = {
 			isa = PBXGroup;
 			children = (
-				3BF11561251E961200372E55 /* AppDelegate.swift */,
-				3BF11563251E961200372E55 /* ContentView.swift */,
+				3BF11581251E9B9300372E55 /* Life Cycle */,
+				3BF11583251E9BA500372E55 /* Views */,
 				3BF11577251E99AB00372E55 /* Models */,
 				3BF11567251E961300372E55 /* Assets.xcassets */,
 				3BF1156C251E961300372E55 /* LaunchScreen.storyboard */,
@@ -90,6 +90,22 @@
 				3BF1157B251E99F500372E55 /* toy_robot_vintage.usdz */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3BF11581251E9B9300372E55 /* Life Cycle */ = {
+			isa = PBXGroup;
+			children = (
+				3BF11561251E961200372E55 /* AppDelegate.swift */,
+			);
+			path = "Life Cycle";
+			sourceTree = "<group>";
+		};
+		3BF11583251E9BA500372E55 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3BF11563251E961200372E55 /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
