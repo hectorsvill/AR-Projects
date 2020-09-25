@@ -17,6 +17,7 @@
 		3BF1157E251E99F500372E55 /* fender_stratocaster.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 3BF1157A251E99F400372E55 /* fender_stratocaster.usdz */; };
 		3BF1157F251E99F500372E55 /* toy_robot_vintage.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 3BF1157B251E99F500372E55 /* toy_robot_vintage.usdz */; };
 		3BF11586251EAB6A00372E55 /* ModelPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF11585251EAB6A00372E55 /* ModelPickerView.swift */; };
+		3BF1158A251EBAE000372E55 /* PlacementButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF11589251EBAE000372E55 /* PlacementButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		3BF1157A251E99F400372E55 /* fender_stratocaster.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = fender_stratocaster.usdz; sourceTree = "<group>"; };
 		3BF1157B251E99F500372E55 /* toy_robot_vintage.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_robot_vintage.usdz; sourceTree = "<group>"; };
 		3BF11585251EAB6A00372E55 /* ModelPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPickerView.swift; sourceTree = "<group>"; };
+		3BF11589251EBAE000372E55 /* PlacementButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacementButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			children = (
 				3BF11563251E961200372E55 /* ContentView.swift */,
 				3BF11585251EAB6A00372E55 /* ModelPickerView.swift */,
+				3BF11589251EBAE000372E55 /* PlacementButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BF1158A251EBAE000372E55 /* PlacementButtonView.swift in Sources */,
 				3BF11564251E961200372E55 /* ContentView.swift in Sources */,
 				3BF11562251E961200372E55 /* AppDelegate.swift in Sources */,
 				3BF11586251EAB6A00372E55 /* ModelPickerView.swift in Sources */,

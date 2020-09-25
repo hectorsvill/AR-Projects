@@ -30,7 +30,10 @@ struct ContentView : View {
     var body: some View {
         ZStack(alignment: .bottom){
             ARViewContainer()
-            ModelPickerView(models: models)
+//            ModelPickerView(models: models)
+            
+            PlacementButtonView()
+            
         }
         
     }
