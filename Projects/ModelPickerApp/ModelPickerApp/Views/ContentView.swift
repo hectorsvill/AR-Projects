@@ -5,6 +5,7 @@
 //  Created by Hector Villasano on 9/25/20.
 //
 
+import ARKit
 import SwiftUI
 import RealityKit
 
@@ -37,10 +38,7 @@ struct ContentView : View {
             } else {
                 ModelPickerView(isPlacementEnabled: $isPlacementEnabled, selectedModel: $selectedModel, models: models)
             }
-            
-            
         }
-        
     }
 }
 
@@ -49,13 +47,32 @@ struct ARViewContainer: UIViewRepresentable {
     
     func makeUIView(context: Context) -> ARView {
         let arView = ARView(frame: .zero)
+        let config = ARWorldTrackingConfiguration()
+        
+        config.planeDetection = [.horizontal, .vertical]
+        config.environmentTexturing = .automatic
+        
+        // Check if device has LiDAR Scanner
+        if ARWorldTrackingConfiguration.supportsSceneReconstruction(.mesh) {
+            config.sceneReconstruction = .mesh
+        }
+        
+        arView.session.run(config)
+        
         return arView
     }
     
     func updateUIView(_ uiView: ARView, context: Context) {
         if let modelName = modelConfirmedForPlacement {
-            print(modelName)
-        
+            
+            let fileName = modelName + ".usdz"
+            let modelEntity = try! ModelEntity.loadModel(named: fileName)
+            let anchorEnitity = AnchorEntity(plane: .any)
+            
+            anchorEnitity.addChild(modelEntity)
+            
+            uiView.scene.addAnchor(anchorEnitity)
+            
             DispatchQueue.main.async {
                 self.modelConfirmedForPlacement = nil
             }

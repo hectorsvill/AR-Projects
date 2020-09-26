@@ -14,4 +14,4 @@ Learning and experimenting with Augmented Reality
 - SwiftUI
 -  Pick and place multiple 3D models
 - Apple [usdz models](https://developer.apple.com/augmented-reality/quick-look/)
-    
+- LiDar Support     
