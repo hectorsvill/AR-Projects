@@ -30,8 +30,6 @@ struct ContentView : View {
             
             let model = Model(modelName: modelName)
             availableModels.append(model)
-            
-            
         }
         
         return availableModels
@@ -54,20 +52,7 @@ struct ARViewContainer: UIViewRepresentable {
     @Binding var modelConfirmedForPlacement: Model?
     
     func makeUIView(context: Context) -> ARView {
-        let arView = FocusARView(frame: .zero)//ARView(frame: .zero)
-//        let config = ARWorldTrackingConfiguration()
-//
-//        config.planeDetection = [.horizontal, .vertical]
-//        config.environmentTexturing = .automatic
-//
-//        // Check if device has LiDAR Scanner
-//        if ARWorldTrackingConfiguration.supportsSceneReconstruction(.mesh) {
-//            config.sceneReconstruction = .mesh
-//        }
-//
-//        arView.session.run(config)
-        
-        return arView
+        FocusARView(frame: .zero)
     }
     
     func updateUIView(_ uiView: ARView, context: Context) {

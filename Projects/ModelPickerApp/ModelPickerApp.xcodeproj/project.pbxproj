@@ -75,7 +75,7 @@
 				3BF11581251E9B9300372E55 /* Life Cycle */,
 				3BF11583251E9BA500372E55 /* Views */,
 				3BF11577251E99AB00372E55 /* USDZ Models */,
-				3BF1158D251FAC9E00372E55 /* Model.swift */,
+				3BF11598251FBE0900372E55 /* Models */,
 				3BF1156C251E961300372E55 /* LaunchScreen.storyboard */,
 				3BF1156F251E961300372E55 /* Info.plist */,
 				3BF11567251E961300372E55 /* Assets.xcassets */,
@@ -120,6 +120,14 @@
 				3BF11595251FBB8100372E55 /* FocusARView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		3BF11598251FBE0900372E55 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3BF1158D251FAC9E00372E55 /* Model.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
