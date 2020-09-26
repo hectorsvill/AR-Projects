@@ -17,3 +17,4 @@ Learning and experimenting with Augmented Reality
 - Apple [usdz models](https://developer.apple.com/augmented-reality/quick-look/)
 - LiDAR Support 
 - load model async with [Combine](https://developer.apple.com/documentation/combine)
+- [Focus Entity](https://github.com/maxxfrazer/FocusEntity)

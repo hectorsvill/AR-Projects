@@ -8,6 +8,7 @@
 import ARKit
 import SwiftUI
 import RealityKit
+import FocusEntity
 
 struct ContentView : View {
     @State private var isPlacementEnabled = false
@@ -53,18 +54,18 @@ struct ARViewContainer: UIViewRepresentable {
     @Binding var modelConfirmedForPlacement: Model?
     
     func makeUIView(context: Context) -> ARView {
-        let arView = ARView(frame: .zero)
-        let config = ARWorldTrackingConfiguration()
-        
-        config.planeDetection = [.horizontal, .vertical]
-        config.environmentTexturing = .automatic
-        
-        // Check if device has LiDAR Scanner
-        if ARWorldTrackingConfiguration.supportsSceneReconstruction(.mesh) {
-            config.sceneReconstruction = .mesh
-        }
-        
-        arView.session.run(config)
+        let arView = FocusARView(frame: .zero)//ARView(frame: .zero)
+//        let config = ARWorldTrackingConfiguration()
+//
+//        config.planeDetection = [.horizontal, .vertical]
+//        config.environmentTexturing = .automatic
+//
+//        // Check if device has LiDAR Scanner
+//        if ARWorldTrackingConfiguration.supportsSceneReconstruction(.mesh) {
+//            config.sceneReconstruction = .mesh
+//        }
+//
+//        arView.session.run(config)
         
         return arView
     }
@@ -85,6 +86,7 @@ struct ARViewContainer: UIViewRepresentable {
         }
     }
 }
+
 
 #if DEBUG
 struct ContentView_Previews : PreviewProvider {

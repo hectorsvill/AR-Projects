@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,8 @@
 		3BF11586251EAB6A00372E55 /* ModelPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF11585251EAB6A00372E55 /* ModelPickerView.swift */; };
 		3BF1158A251EBAE000372E55 /* PlacementButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF11589251EBAE000372E55 /* PlacementButtonView.swift */; };
 		3BF1158E251FAC9E00372E55 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF1158D251FAC9E00372E55 /* Model.swift */; };
+		3BF11593251FB94400372E55 /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = 3BF11592251FB94400372E55 /* FocusEntity */; };
+		3BF11596251FBB8100372E55 /* FocusARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF11595251FBB8100372E55 /* FocusARView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,7 @@
 		3BF11585251EAB6A00372E55 /* ModelPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPickerView.swift; sourceTree = "<group>"; };
 		3BF11589251EBAE000372E55 /* PlacementButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacementButtonView.swift; sourceTree = "<group>"; };
 		3BF1158D251FAC9E00372E55 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		3BF11595251FBB8100372E55 /* FocusARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusARView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BF11593251FB94400372E55 /* FocusEntity in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +117,7 @@
 				3BF11563251E961200372E55 /* ContentView.swift */,
 				3BF11585251EAB6A00372E55 /* ModelPickerView.swift */,
 				3BF11589251EBAE000372E55 /* PlacementButtonView.swift */,
+				3BF11595251FBB8100372E55 /* FocusARView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -133,6 +138,9 @@
 			dependencies = (
 			);
 			name = ModelPickerApp;
+			packageProductDependencies = (
+				3BF11592251FB94400372E55 /* FocusEntity */,
+			);
 			productName = ModelPickerApp;
 			productReference = 3BF1155E251E961100372E55 /* ModelPickerApp.app */;
 			productType = "com.apple.product-type.application";
@@ -160,6 +168,9 @@
 				Base,
 			);
 			mainGroup = 3BF11555251E961100372E55;
+			packageReferences = (
+				3BF11591251FB94400372E55 /* XCRemoteSwiftPackageReference "FocusEntity" */,
+			);
 			productRefGroup = 3BF1155F251E961100372E55 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -195,6 +206,7 @@
 				3BF1158A251EBAE000372E55 /* PlacementButtonView.swift in Sources */,
 				3BF11564251E961200372E55 /* ContentView.swift in Sources */,
 				3BF11562251E961200372E55 /* AppDelegate.swift in Sources */,
+				3BF11596251FBB8100372E55 /* FocusARView.swift in Sources */,
 				3BF11586251EAB6A00372E55 /* ModelPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,6 +405,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3BF11591251FB94400372E55 /* XCRemoteSwiftPackageReference "FocusEntity" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maxxfrazer/FocusEntity";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3BF11592251FB94400372E55 /* FocusEntity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BF11591251FB94400372E55 /* XCRemoteSwiftPackageReference "FocusEntity" */;
+			productName = FocusEntity;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3BF11556251E961100372E55 /* Project object */;
 }
