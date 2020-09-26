@@ -6,8 +6,8 @@ Learning and experimenting with Augmented Reality
 
 ##### ARDice
  - UIKit
- - [3D Models turbosquid](https://www.turbosquid.com)
  - Place dice on horizontal plane
+ - [3D Models turbosquid](https://www.turbosquid.com)
  - Shake phone for roll animation 
  
 ##### Model Picker App

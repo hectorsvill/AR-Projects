@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct PlacementButtonView: View {
+    @Binding var isPlacementEnabled: Bool
+    @Binding var selectedModel: String?
+    @Binding var modelConfirmedForPlacement: String?
+    
     var body: some View {
         HStack {
             Button(action: {
-                print("Cancel")
+                resetPlacementParameters()
             }){
                 Image(systemName: "xmark")
                     .frame(width: 60, height: 60)
@@ -22,7 +26,8 @@ struct PlacementButtonView: View {
             }
 
             Button(action: {
-                print("Confirmed")
+                modelConfirmedForPlacement = selectedModel
+                resetPlacementParameters()
             }){
                 Image(systemName: "checkmark")
                     .frame(width: 60, height: 60)
@@ -32,5 +37,10 @@ struct PlacementButtonView: View {
                     .padding(20)
             }
         }
+    }
+    
+    func resetPlacementParameters() {
+        isPlacementEnabled = false
+        selectedModel = nil
     }
 }

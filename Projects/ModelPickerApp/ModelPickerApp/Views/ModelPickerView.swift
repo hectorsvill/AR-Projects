@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ModelPickerView: View {
+    @Binding var isPlacementEnabled: Bool
+    @Binding var selectedModel: String?
+    
     var models: [String]
     
     var body: some View {
@@ -17,7 +20,8 @@ struct ModelPickerView: View {
                     let model = self.models[index]
                     
                     Button(action: {
-                        print(model)
+                        self.selectedModel = model
+                        isPlacementEnabled = true
                     }) {
                         if let image = UIImage(named: model) {
                             Image(uiImage: image)
