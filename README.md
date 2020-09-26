@@ -11,7 +11,9 @@ Learning and experimenting with Augmented Reality
  - Shake phone for roll animation 
  
 ##### Model Picker App
+- [YT Tutorial](https://www.youtube.com/watch?v=9R_G0EI-UoI&list=PLBv1NzmBcY51I2qFurJv8Kk5jw1JIJeeY)
 - SwiftUI
 -  Pick and place multiple 3D models
 - Apple [usdz models](https://developer.apple.com/augmented-reality/quick-look/)
-- LiDar Support     
+- LiDAR Support 
+- load model async with [Combine](https://developer.apple.com/documentation/combine)

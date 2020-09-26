@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ModelPickerView: View {
     @Binding var isPlacementEnabled: Bool
-    @Binding var selectedModel: String?
+    @Binding var selectedModel: Model?
     
-    var models: [String]
+    var models: [Model]
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -23,7 +23,7 @@ struct ModelPickerView: View {
                         self.selectedModel = model
                         isPlacementEnabled = true
                     }) {
-                        if let image = UIImage(named: model) {
+                        if let image = model.image {
                             Image(uiImage: image)
                                 .resizable()
                                 .frame(height: 80)

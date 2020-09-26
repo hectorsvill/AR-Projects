@@ -11,21 +11,28 @@ import RealityKit
 
 struct ContentView : View {
     @State private var isPlacementEnabled = false
-    @State private var selectedModel: String?
-    @State private var modelConfirmedForPlacement: String?
+    @State private var selectedModel: Model?
+    @State private var modelConfirmedForPlacement: Model?
     
-    var models: [String] = {
+    var models: [Model] = {
         let fileManager = FileManager.default
+        
         guard let path = Bundle.main.resourcePath,
               let files = try? fileManager.contentsOfDirectory(atPath: path) else {
             return []
         }
         
-        var availableModels = [String]()
+        var availableModels = [Model]()
+        
         for filename in files where filename.hasSuffix("usdz") {
             let modelName = filename.replacingOccurrences(of: ".usdz", with: "")
-            availableModels.append(modelName)
+            
+            let model = Model(modelName: modelName)
+            availableModels.append(model)
+            
+            
         }
+        
         return availableModels
     }()
     
@@ -43,7 +50,7 @@ struct ContentView : View {
 }
 
 struct ARViewContainer: UIViewRepresentable {
-    @Binding var modelConfirmedForPlacement: String?
+    @Binding var modelConfirmedForPlacement: Model?
     
     func makeUIView(context: Context) -> ARView {
         let arView = ARView(frame: .zero)
@@ -63,22 +70,19 @@ struct ARViewContainer: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: ARView, context: Context) {
-        if let modelName = modelConfirmedForPlacement {
+        if let model = modelConfirmedForPlacement,
+           let modelEntity = model.modelEntity {
             
-            let fileName = modelName + ".usdz"
-            let modelEntity = try! ModelEntity.loadModel(named: fileName)
             let anchorEnitity = AnchorEntity(plane: .any)
-            
-            anchorEnitity.addChild(modelEntity)
-            
+            anchorEnitity.addChild(modelEntity.clone(recursive: true))
             uiView.scene.addAnchor(anchorEnitity)
-            
-            DispatchQueue.main.async {
-                self.modelConfirmedForPlacement = nil
-            }
+        } else {
+            print("DEBUG: Unable to load model entity")
         }
         
-        
+        DispatchQueue.main.async {
+            self.modelConfirmedForPlacement = nil
+        }
     }
 }
 

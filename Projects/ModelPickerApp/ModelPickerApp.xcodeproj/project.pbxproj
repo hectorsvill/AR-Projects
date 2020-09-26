@@ -18,6 +18,7 @@
 		3BF1157F251E99F500372E55 /* toy_robot_vintage.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 3BF1157B251E99F500372E55 /* toy_robot_vintage.usdz */; };
 		3BF11586251EAB6A00372E55 /* ModelPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF11585251EAB6A00372E55 /* ModelPickerView.swift */; };
 		3BF1158A251EBAE000372E55 /* PlacementButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF11589251EBAE000372E55 /* PlacementButtonView.swift */; };
+		3BF1158E251FAC9E00372E55 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF1158D251FAC9E00372E55 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		3BF1157B251E99F500372E55 /* toy_robot_vintage.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_robot_vintage.usdz; sourceTree = "<group>"; };
 		3BF11585251EAB6A00372E55 /* ModelPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPickerView.swift; sourceTree = "<group>"; };
 		3BF11589251EBAE000372E55 /* PlacementButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacementButtonView.swift; sourceTree = "<group>"; };
+		3BF1158D251FAC9E00372E55 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,10 +70,11 @@
 			children = (
 				3BF11581251E9B9300372E55 /* Life Cycle */,
 				3BF11583251E9BA500372E55 /* Views */,
-				3BF11577251E99AB00372E55 /* Models */,
-				3BF11567251E961300372E55 /* Assets.xcassets */,
+				3BF11577251E99AB00372E55 /* USDZ Models */,
+				3BF1158D251FAC9E00372E55 /* Model.swift */,
 				3BF1156C251E961300372E55 /* LaunchScreen.storyboard */,
 				3BF1156F251E961300372E55 /* Info.plist */,
+				3BF11567251E961300372E55 /* Assets.xcassets */,
 				3BF11569251E961300372E55 /* Preview Content */,
 			);
 			path = ModelPickerApp;
@@ -85,7 +88,7 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		3BF11577251E99AB00372E55 /* Models */ = {
+		3BF11577251E99AB00372E55 /* USDZ Models */ = {
 			isa = PBXGroup;
 			children = (
 				3BF1157A251E99F400372E55 /* fender_stratocaster.usdz */,
@@ -93,7 +96,7 @@
 				3BF11578251E99F300372E55 /* toy_biplane.usdz */,
 				3BF1157B251E99F500372E55 /* toy_robot_vintage.usdz */,
 			);
-			path = Models;
+			path = "USDZ Models";
 			sourceTree = "<group>";
 		};
 		3BF11581251E9B9300372E55 /* Life Cycle */ = {
@@ -188,6 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BF1158E251FAC9E00372E55 /* Model.swift in Sources */,
 				3BF1158A251EBAE000372E55 /* PlacementButtonView.swift in Sources */,
 				3BF11564251E961200372E55 /* ContentView.swift in Sources */,
 				3BF11562251E961200372E55 /* AppDelegate.swift in Sources */,
