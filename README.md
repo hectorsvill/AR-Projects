@@ -18,3 +18,8 @@ Learning and experimenting with Augmented Reality
 - LiDAR Support 
 - load model async with [Combine](https://developer.apple.com/documentation/combine)
 - [Focus Entity](https://github.com/maxxfrazer/FocusEntity)
+
+
+#### Stacking AR Objects Using RealityKit, ARKit 4 and SwiftUI // Coding on iPad Pro
+- [YT](https://www.youtube.com/watch?v=mPJiRtNzIHw)
+
