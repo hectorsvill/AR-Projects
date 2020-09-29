@@ -26,6 +26,7 @@ struct ARViewContainer: UIViewRepresentable {
     
 }
 
+let size: Float = 0.1
 extension ARView {
     
     func enableTapGesture() {
@@ -46,7 +47,8 @@ extension ARView {
             // Place object on top of existing AR Object
             
             var position = firstResult.position
-            position.y += 0.3/2
+            
+            position.y += size/2
             
             placeCube(at: position)
         } else {
@@ -64,8 +66,8 @@ extension ARView {
     }
 
     func placeCube(at position: SIMD3<Float>) {
-        let mesh = MeshResource.generateBox(size: 0.3)
-        let material = SimpleMaterial(color: .white, roughness: 0.3, isMetallic: true)
+        let mesh = MeshResource.generateBox(size: size)
+        let material = SimpleMaterial(color: .randomColor(), roughness: MaterialScalarParameter(floatLiteral: size), isMetallic: true)
         
         let modelEntity = ModelEntity(mesh: mesh, materials: [material])
         modelEntity.generateCollisionShapes(recursive: true)
@@ -74,6 +76,15 @@ extension ARView {
         anchorentity.addChild(modelEntity)
         scene.addAnchor(anchorentity)
         
+    }
+}
+
+extension UIColor {
+    class func randomColor() -> UIColor {
+        let colors: [UIColor] = [.red, .green, .blue, purple, .yellow]
+        let randomIndex = Int(arc4random_uniform(UInt32(colors.count)))
+        return colors[randomIndex]
+//        return colors.randomElement()!
     }
 }
 
