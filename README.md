@@ -20,6 +20,6 @@ Learning and experimenting with Augmented Reality
 - [Focus Entity](https://github.com/maxxfrazer/FocusEntity)
 
 
-#### Stacking AR Objects Using RealityKit, ARKit 4 and SwiftUI // Coding on iPad Pro
+#### Stacking AR Objects Using RealityKit, ARKit 4 and SwiftUI // Xcode
 - [YT](https://www.youtube.com/watch?v=mPJiRtNzIHw)
 
