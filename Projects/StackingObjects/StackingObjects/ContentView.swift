@@ -27,8 +27,8 @@ struct ARViewContainer: UIViewRepresentable {
 }
 
 let size: Float = 0.1
+
 extension ARView {
-    
     func enableTapGesture() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(recognizer:)))
         addGestureRecognizer(tapGesture)
@@ -48,19 +48,17 @@ extension ARView {
             
             var position = firstResult.position
             
-            position.y += size/2
+            position.y += size
             
             placeCube(at: position)
         } else {
             // Raycast has not intersected with AR object
             // Place a new object on a real-world surface (if present)
-            
             let results = raycast(from: tapLocation, allowing: .estimatedPlane, alignment: .any)
             
             if let firstResult = results.first {
                 let position = simd_make_float3(firstResult.worldTransform.columns.3) // SIMD3<FLOAT> - x,y,z, vector
                 placeCube(at: position)
-                
             }
         }
     }
@@ -75,7 +73,6 @@ extension ARView {
         let anchorentity = AnchorEntity(world: position)
         anchorentity.addChild(modelEntity)
         scene.addAnchor(anchorentity)
-        
     }
 }
 
