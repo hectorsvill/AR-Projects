@@ -25,3 +25,12 @@ Learning and experimenting with Augmented Reality
 - [YT](https://www.youtube.com/watch?v=mPJiRtNzIHw)
 - SwiftUI
 
+
+#### Make an AR Animoji with RealityKit and Reality Composer
+- [roboAnimoji]()
+- [YT](https://www.youtube.com/watch?v=xXX2s-cWJNw)
+- ARFaceTrackingConfiguration
+- Reality Composer
+- Reality Composer Behaviors
+-[ ARFaceAnchor](https://developer.apple.com/documentation/arkit/arfaceanchor?language=objc) [blendedShapes](https://developer.apple.com/documentation/arkit/arfaceanchor/2928251-blendshapes?language=objc)
+
