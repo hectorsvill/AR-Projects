@@ -30,6 +30,8 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        guard ARFaceTrackingConfiguration.isSupported else { return }
+        
         let config = ARFaceTrackingConfiguration()
         arView.session.run(config)
         arView.session.delegate = self
