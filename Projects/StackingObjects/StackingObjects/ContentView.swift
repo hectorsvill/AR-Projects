@@ -26,7 +26,7 @@ struct ARViewContainer: UIViewRepresentable {
     
 }
 
-let size: Float = 0.1
+let size: Float = 0.2
 
 extension ARView {
     func enableTapGesture() {
@@ -48,7 +48,7 @@ extension ARView {
             
             var position = firstResult.position
             
-            position.y += size
+            position.y += (size / 2)
             
             placeCube(at: position)
         } else {
