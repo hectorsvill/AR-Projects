@@ -32,5 +32,5 @@ Learning and experimenting with Augmented Reality
 - ARFaceTrackingConfiguration
 - Reality Composer
 - Reality Composer Behaviors
--[ ARFaceAnchor](https://developer.apple.com/documentation/arkit/arfaceanchor?language=objc) [blendedShapes](https://developer.apple.com/documentation/arkit/arfaceanchor/2928251-blendshapes?language=objc)
+- [ ARFaceAnchor](https://developer.apple.com/documentation/arkit/arfaceanchor?language=objc) [blendedShapes](https://developer.apple.com/documentation/arkit/arfaceanchor/2928251-blendshapes?language=objc)
 
