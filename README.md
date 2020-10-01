@@ -21,13 +21,13 @@ Learning and experimenting with Augmented Reality
 
 
 #### Stacking AR Objects Using RealityKit, ARKit 4 and SwiftUI // Xcode
-- [StackingObjects]()
+- [StackingObjects](https://github.com/hectorsvill/AR-Projects/blob/master/Projects/StackingObjects/StackingObjects/ContentView.swift)
 - [YT](https://www.youtube.com/watch?v=mPJiRtNzIHw)
 - SwiftUI
 
 
 #### Make an AR Animoji with RealityKit and Reality Composer
-- [roboAnimoji]()
+- [roboAnimoji](https://github.com/hectorsvill/AR-Projects/blob/master/Projects/roboAnimoji/roboAnimoji/ViewController.swift)
 - [YT](https://www.youtube.com/watch?v=xXX2s-cWJNw)
 - ARFaceTrackingConfiguration
 - Reality Composer
@@ -35,6 +35,6 @@ Learning and experimenting with Augmented Reality
 - [ ARFaceAnchor](https://developer.apple.com/documentation/arkit/arfaceanchor?language=objc) [blendedShapes](https://developer.apple.com/documentation/arkit/arfaceanchor/2928251-blendshapes?language=objc)
 
 #### FaceMesh
-- [FaceMesh]()
+- [FaceMesh](https://github.com/hectorsvill/AR-Projects/blob/master/Projects/FaceMesh/FaceMesh/ViewController.swift)
 - [YT](https://www.youtube.com/watch?v=RKWBRVnJsqs)
 
