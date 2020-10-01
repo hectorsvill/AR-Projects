@@ -30,7 +30,10 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        guard ARFaceTrackingConfiguration.isSupported else { return }
+        guard ARFaceTrackingConfiguration.isSupported else {
+            faceTrackingNotAvailableAlert()
+            return
+        }
         
         let config = ARFaceTrackingConfiguration()
         arView.session.run(config)
@@ -41,6 +44,13 @@ class ViewController: UIViewController {
         
         configureEntities()
     }
+    
+    private func faceTrackingNotAvailableAlert() {
+        let alertController = UIAlertController(title: "Face Tracking not available", message: nil, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
+    
     
     private func configureEntities() {
         mouth = roboAnchor.findEntity(named: "mouth")
