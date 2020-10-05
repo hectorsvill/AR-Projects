@@ -3,14 +3,17 @@ Learning and experimenting with Augmented Reality
 
 [ARKit](https://developer.apple.com/augmented-reality/arkit/)
 [SceneKit](https://developer.apple.com/documentation/scenekit)
+[RealityKit](https://developer.apple.com/documentation/realitykit/)
 
 ##### ARDice
+ - [ARDice](https://github.com/hectorsvill/AR-Projects/tree/master/Projects/ARDice/ARDice)
  - UIKit
  - Place dice on horizontal plane
  - [3D Models turbosquid](https://www.turbosquid.com)
  - Shake phone for roll animation 
  
 ##### Model Picker App
+ - [Model Picker App](https://github.com/hectorsvill/AR-Projects/tree/master/Projects/ModelPickerApp/ModelPickerApp)
 - [YT Tutorial](https://www.youtube.com/watch?v=9R_G0EI-UoI&list=PLBv1NzmBcY51I2qFurJv8Kk5jw1JIJeeY)
 - SwiftUI
 -  Pick and place multiple 3D models
